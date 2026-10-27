@@ -6,7 +6,13 @@ This is a wrapper around TesserPack, not a fork or a fix to its executable.
 
 ## Installation
 
-Copy `filters/tesserpack` into your Regolith project, then add the filter definition and the filter to the desired profile in `config.json`:
+Clone this repository:
+
+```sh
+git clone https://github.com/alexdev03/tesserpack-regolith.git
+```
+
+Copy `tesserpack-regolith/filters/tesserpack` into the `filters` directory of your Regolith project. Then add the filter definition and the filter to the desired profile in your project's `config.json`:
 
 ```json
 {
