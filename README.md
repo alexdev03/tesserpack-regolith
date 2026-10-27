@@ -1,8 +1,8 @@
 # TesserPack Regolith filter
 
-A [Regolith](https://bedrock-oss.github.io/regolith/) filter that runs [TesserPack](https://github.com/TBroz15/TesserPack) on staged Minecraft Bedrock behavior and resource packs. It preserves PNG files omitted by TesserPack 0.4.2 and restores each pack's `texts` directory after optimization.
+A [Regolith](https://bedrock-oss.github.io/regolith/) filter that runs the [fixed TesserPack fork](https://github.com/alexdev03/TesserPack) on staged Minecraft Bedrock behavior and resource packs. The fork preserves PNGs and language files; the filter also keeps its original preservation checks as a fallback.
 
-This is a wrapper around TesserPack, not a fork or a fix to its executable.
+This repository contains the wrapper. The executable is maintained in the fork, based on [TesserPack](https://github.com/TBroz15/TesserPack).
 
 ## Installation
 
@@ -11,7 +11,7 @@ Add the filter to the `regolith.filterDefinitions` section of your project's `co
 ```json
 "tesserpack": {
   "url": "github.com/alexdev03/tesserpack-regolith",
-  "version": "0.2.0"
+  "version": "0.3.0"
 }
 ```
 
@@ -20,7 +20,7 @@ Add it to the desired profile's `filters` list after template and script generat
 ```json
 {
   "filter": "tesserpack",
-  "settings": { "version": "0.4.2" }
+  "settings": { "version": "0.4.7" }
 }
 ```
 
@@ -31,7 +31,7 @@ regolith install-all
 regolith run build-release
 ```
 
-Replace `build-release` with your profile name. The filter version `0.2.0` is pinned independently of the TesserPack executable version in the settings.
+Replace `build-release` with your profile name. Filter version `0.3.0` is pinned independently of the fork's executable version (`0.4.7`, the default). Remove any old `0.4.2` override when upgrading.
 
 The filter needs Python 3.9 or newer and supports Windows and Linux x86-64. On first use it downloads the selected TesserPack release into `tools/tesserpack/bin-<version>` in the project. Linux also requires TesserPack's native libraries; see the upstream documentation. `settings.json` supplies the default version, which profile settings can override.
 

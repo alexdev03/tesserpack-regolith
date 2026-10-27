@@ -42,7 +42,7 @@ def ensure_binary(root_dir: str, version: str) -> Path:
         exe_path = tesserpack_dir / "tesserpack.exe"
         if not exe_path.is_file():
             print(f"Windows TesserPack binary (v{version}) not found. Downloading...")
-            zip_url = f"https://github.com/TBroz15/TesserPack/releases/download/v{version}/tesserpack_Windows_x86_64.zip"
+            zip_url = f"https://github.com/alexdev03/TesserPack/releases/download/v{version}/tesserpack_Windows_x86_64.zip"
             temp_zip = tesserpack_dir / "tesserpack.zip"
             urllib.request.urlretrieve(zip_url, temp_zip)
             with zipfile.ZipFile(temp_zip, 'r') as zip_ref:
@@ -55,7 +55,7 @@ def ensure_binary(root_dir: str, version: str) -> Path:
         bin_path = tesserpack_dir / "tesserpack"
         if not bin_path.is_file():
             print(f"Linux TesserPack binary (v{version}) not found. Downloading...")
-            tar_url = f"https://github.com/TBroz15/TesserPack/releases/download/v{version}/tesserpack_Linux_x86_64.tar.gz"
+            tar_url = f"https://github.com/alexdev03/TesserPack/releases/download/v{version}/tesserpack_Linux_x86_64.tar.gz"
             temp_tar = tesserpack_dir / "tesserpack.tar.gz"
             urllib.request.urlretrieve(tar_url, temp_tar)
             with tarfile.open(temp_tar, "r:gz") as tar_ref:
@@ -75,7 +75,7 @@ def main() -> None:
 
     # Load settings to get dynamic version
     settings = load_merged_settings()
-    version = settings.get("version", "0.4.2")
+    version = settings.get("version", "0.4.7")
     print(f"Targeting TesserPack version: v{version}")
 
     # Get the root directory of the workspace from environment or fallback
