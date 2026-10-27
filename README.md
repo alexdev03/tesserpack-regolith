@@ -6,13 +6,16 @@ This is a wrapper around TesserPack, not a fork or a fix to its executable.
 
 ## Installation
 
-Run this command from your Regolith project:
+Add the filter to the `regolith.filterDefinitions` section of your project's `config.json`:
 
-```sh
-regolith install github.com/alexdev03/tesserpack-regolith/tesserpack==0.2.0
+```json
+"tesserpack": {
+  "url": "github.com/alexdev03/tesserpack-regolith",
+  "version": "0.2.0"
+}
 ```
 
-Regolith adds the filter definition to your project's `config.json`. Add the filter to the desired profile after template and script generation and before packing:
+Add it to the desired profile's `filters` list after template and script generation and before packing:
 
 ```json
 {
@@ -21,7 +24,14 @@ Regolith adds the filter definition to your project's `config.json`. Add the fil
 }
 ```
 
-Run your configured profile with `regolith run build-release`. The filter version `0.2.0` is pinned independently of the TesserPack executable version in the settings.
+Download the configured filters from the project directory, then run your profile:
+
+```sh
+regolith install-all
+regolith run build-release
+```
+
+Replace `build-release` with your profile name. The filter version `0.2.0` is pinned independently of the TesserPack executable version in the settings.
 
 The filter needs Python 3.9 or newer and supports Windows and Linux x86-64. On first use it downloads the selected TesserPack release into `tools/tesserpack/bin-<version>` in the project. Linux also requires TesserPack's native libraries; see the upstream documentation. `settings.json` supplies the default version, which profile settings can override.
 
