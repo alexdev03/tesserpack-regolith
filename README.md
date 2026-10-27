@@ -9,7 +9,7 @@ This is a wrapper around TesserPack, not a fork or a fix to its executable.
 Run this command from your Regolith project:
 
 ```sh
-regolith install github.com/alexdev03/tesserpack-regolith/tesserpack==HEAD
+regolith install github.com/alexdev03/tesserpack-regolith/tesserpack==0.2.0
 ```
 
 Regolith adds the filter definition to your project's `config.json`. Add the filter to the desired profile after template and script generation and before packing:
@@ -21,7 +21,7 @@ Regolith adds the filter definition to your project's `config.json`. Add the fil
 }
 ```
 
-Run your configured profile with `regolith run build-release`. The `HEAD` version follows the latest commit; use a released filter version to pin it.
+Run your configured profile with `regolith run build-release`. The filter version `0.2.0` is pinned independently of the TesserPack executable version in the settings.
 
 The filter needs Python 3.9 or newer and supports Windows and Linux x86-64. On first use it downloads the selected TesserPack release into `tools/tesserpack/bin-<version>` in the project. Linux also requires TesserPack's native libraries; see the upstream documentation. `settings.json` supplies the default version, which profile settings can override.
 
