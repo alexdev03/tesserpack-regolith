@@ -1,0 +1,9 @@
+{
+  "description": "Optimizes Bedrock packs with TesserPack while preserving missing PNGs and texts.",
+  "filters": [
+    {
+      "runWith": "python",
+      "script": "./__main__.py"
+    }
+  ]
+}
