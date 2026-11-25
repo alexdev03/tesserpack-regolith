@@ -37,7 +37,7 @@ The filter needs Python 3.9 or newer and supports Windows and Linux x86-64. On f
 
 ## Behavior and limitations
 
-- Each staged `BP` and `RP` is compiled separately. Missing PNGs are copied from the input into the optimized archive; already optimized PNGs are retained.
+- Each staged `BP` and `RP` is compiled separately. Missing PNGs are copied from the input into the optimized archive. Optimized PNGs are kept only if their RGBA pixels match the input (colour under fully transparent pixels is ignored); otherwise, such as textures with more than 256 colours reduced to a palette, the original is restored.
 - The original `texts` directory is restored to avoid missing language files.
 - On Linux, a compilation failure logs a warning and leaves that pack unoptimized. On Windows, it stops the filter.
 - Other file types are not automatically restored if TesserPack omits them. Check the resulting pack and test it in Minecraft before release.
@@ -49,4 +49,4 @@ The filter needs Python 3.9 or newer and supports Windows and Linux x86-64. On f
 python tesserpack/test_tesserpack.py
 ```
 
-The test checks that a missing PNG is restored and an optimized PNG is retained.
+The tests check that missing PNGs and PNGs with changed pixels are restored, and that lossless optimized PNGs are retained.
