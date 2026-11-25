@@ -47,14 +47,14 @@ class TesserpackTest(unittest.TestCase):
             def download(url, destination):
                 self.assertEqual(
                     url,
-                    "https://github.com/alexdev03/TesserPack/releases/download/v0.4.7/tesserpack_Windows_x86_64.zip",
+                    "https://github.com/alexdev03/TesserPack/releases/download/v0.4.8/tesserpack_Windows_x86_64.zip",
                 )
                 with zipfile.ZipFile(destination, "w") as archive:
                     archive.writestr("tesserpack.exe", b"binary")
 
             with patch.object(tesserpack.platform, "system", return_value="Windows"), \
                  patch.object(tesserpack.urllib.request, "urlretrieve", side_effect=download):
-                binary = tesserpack.ensure_binary(temp, "0.4.7")
+                binary = tesserpack.ensure_binary(temp, "0.4.8")
 
             self.assertEqual(binary.read_bytes(), b"binary")
 
@@ -63,7 +63,7 @@ class TesserpackTest(unittest.TestCase):
             def download(url, destination):
                 self.assertEqual(
                     url,
-                    "https://github.com/alexdev03/TesserPack/releases/download/v0.4.7/tesserpack_Linux_x86_64.tar.gz",
+                    "https://github.com/alexdev03/TesserPack/releases/download/v0.4.8/tesserpack_Linux_x86_64.tar.gz",
                 )
                 with tarfile.open(destination, "w:gz") as archive:
                     entry = tarfile.TarInfo("tesserpack")
@@ -72,7 +72,7 @@ class TesserpackTest(unittest.TestCase):
 
             with patch.object(tesserpack.platform, "system", return_value="Linux"), \
                  patch.object(tesserpack.urllib.request, "urlretrieve", side_effect=download):
-                binary = tesserpack.ensure_binary(temp, "0.4.7")
+                binary = tesserpack.ensure_binary(temp, "0.4.8")
 
             self.assertEqual(binary.read_bytes(), b"binary")
 

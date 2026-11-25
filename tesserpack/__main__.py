@@ -240,7 +240,7 @@ def main() -> None:
 
     # Load settings to get dynamic version
     settings = load_merged_settings()
-    version = settings.get("version", "0.4.7")
+    version = settings.get("version", "0.4.8")
     print(f"Targeting TesserPack version: v{version}")
 
     # Get the root directory of the workspace from environment or fallback

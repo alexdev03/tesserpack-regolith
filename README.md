@@ -11,7 +11,7 @@ Add the filter to the `regolith.filterDefinitions` section of your project's `co
 ```json
 "tesserpack": {
   "url": "github.com/alexdev03/tesserpack-regolith",
-  "version": "0.3.0"
+  "version": "0.3.1"
 }
 ```
 
@@ -20,7 +20,7 @@ Add it to the desired profile's `filters` list after template and script generat
 ```json
 {
   "filter": "tesserpack",
-  "settings": { "version": "0.4.7" }
+  "settings": { "version": "0.4.8" }
 }
 ```
 
@@ -31,7 +31,7 @@ regolith install-all
 regolith run build-release
 ```
 
-Replace `build-release` with your profile name. Filter version `0.3.0` is pinned independently of the fork's executable version (`0.4.7`, the default). Remove any old `0.4.2` override when upgrading.
+Replace `build-release` with your profile name. Filter version `0.3.1` is pinned independently of the fork's executable version (`0.4.8`, the default). Remove any old `0.4.2` override when upgrading.
 
 The filter needs Python 3.9 or newer and supports Windows and Linux x86-64. On first use it downloads the selected TesserPack release into `tools/tesserpack/bin-<version>` in the project. Linux also requires TesserPack's native libraries; see the upstream documentation. `settings.json` supplies the default version, which profile settings can override.
 
